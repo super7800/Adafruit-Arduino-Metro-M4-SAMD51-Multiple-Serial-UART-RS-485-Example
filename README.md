@@ -25,10 +25,15 @@ extern Uart Serial2;
 for every additional serial. Youll notice the 56ul, 57ul. These are created in the variant.cpp. In the variant.cpp, i recommend creating new pin lines, i.e. 
 
   { PORTA,  4, PIO_SERCOM_ALT, (PIN_ATTR_ANALOG|PIN_ATTR_PWM_E), ADC_Channel4, TC0_CH0, TC0_CH0, EXTERNAL_INT_4 }, // A3 (55u1)
+  
   { PORTB,  13, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC3_CH1, TC4_CH1, EXTERNAL_INT_13 }, // d4 (56ul)
+  
   { PORTB,  12, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC3_CH0, TC4_CH0, EXTERNAL_INT_12 }, // d7 (57ul)
+  
   { PORTA,  17, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC1_CH1, TC2_CH1, EXTERNAL_INT_1 }, // d12 (58u1)
+  
   { PORTA,  16, PIO_SERCOM, PIN_ATTR_PWM_F, No_ADC_Channel, TCC1_CH0, TC2_CH0, EXTERNAL_INT_0  }, // d13 (59u1)
+  
   { PORTA,  5, PIO_SERCOM_ALT, PIN_ATTR_ANALOG, ADC_Channel5, NOT_ON_PWM, TC0_CH1, EXTERNAL_INT_5 }, // A1 (60u1)
 
 instead of modifying the existing lines. Adding instead of modifying helps ensure libraries still work fine. Instead of the usual PIO_ANALOG, PIO_DIGITAL, ETC instead use the
