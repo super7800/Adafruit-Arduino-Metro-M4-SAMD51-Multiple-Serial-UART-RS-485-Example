@@ -152,29 +152,6 @@ uint16_t modbusCRC(const uint8_t *buf, size_t len) {
 }
 
 /*********************************************************************************************************************
-Read the response (typical ~7 bytes for 1 reg).
-Return the number of bytes read.
-*********************************************************************************************************************/
-
-int readSerialResponse(uint8_t port, uint8_t *resp, int maxLen, unsigned long overallTimeoutMs = 500) {
-  unsigned long startTime = millis();
-  int count = 0;
-
-  while ((millis() - startTime) < overallTimeoutMs) {
-    // If there's data available, read it
-    if (SERIAL_PORTS[port]->available()) {
-      resp[count++] = (uint8_t)SERIAL_PORTS[port]->read();
-      // Restart the timeout counter each time we successfully read a byte
-      startTime = millis();
-      if (count >= maxLen) {
-        break;  // Avoid overrun
-      }
-    }
-  }
-  return count;
-}
-
-/*********************************************************************************************************************
 Universal Read/Write Handler
  - If DATA == -1 => read 1 register (function code 0x04)
  - Otherwise => write 1 register (function code 0x06) with value = DATA
