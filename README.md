@@ -11,8 +11,11 @@ Essentially, you add to the variant.h
 
 // Serial2
 #define PIN_SERIAL2_RX       (56ul) // SERCOM4.1
+
 #define PIN_SERIAL2_TX       (57ul) // SERCOM4.0
+
 #define PAD_SERIAL2_TX       (UART_TX_PAD_0)
+
 #define PAD_SERIAL2_RX       (SERCOM_RX_PAD_1)
 
 for every additional serial you wish to create. Then, at the bottom you add
