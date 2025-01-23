@@ -1,6 +1,8 @@
 # Adafruit-Arduino-Metro-M4-SAMD51-Multiple-Serial-UART-RS-485-Example
 Example of having 6 UART active on a single board.
 
+Special note, SERIAL6 and WIRE Both use the same sercom.
+
 These work as-is without the need for additional modification if you are using the metro M4. This file also defines all the pins not normally broken out.
 
 Files provided are the variant.h and variant.cpp files, some basic basic example code, and the physical connections i used. For RS-485 MODBUS ETC you likely will need a driver.
